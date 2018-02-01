@@ -14,6 +14,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+    @include('layouts.partials.error')
+
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -36,7 +38,22 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        @if(!auth()->user()->verified)
+                            <li>
+                                <a href="{{ route('user.verifyEmail') }}">
+                                    <span class="text-danger">
+                                        Verify email
+                                    </span>
+                                </a>
+                            </li>                           
+                        @endif
+
+                        <li>
+                            <a href="{{ route('home') }}">View trials</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('trial.create') }}">Add trial</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

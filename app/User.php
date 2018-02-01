@@ -19,6 +19,6 @@ class User extends Authenticatable
 
     public function trials()
     {
-        return $this->hasMany('App\Trials');
+        return $this->hasMany('App\Trial');
     }
 }

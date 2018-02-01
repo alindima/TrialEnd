@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class UserController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    public function index()
+    public function verifyEmail()
     {
-        return view('home')->with('trials', Auth::user()->trials());
+        return view('user.verifyEmail');
     }
 }
