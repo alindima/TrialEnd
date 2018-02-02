@@ -8,7 +8,12 @@
                 <div class="panel-heading">Verify email</div>
 
                 <div class="panel-body">
-                    We've sent you a verification email, please click the link and confirm it.
+                    Before allowing you to add any trial accounts, we need to check your email address.
+                    Click below to send a confirmation email to {{ auth()->user()->email }}.
+                    <br><br>
+                    <hr>
+                    <a href="{{ route('user.resendEmail') }}" class="btn btn-primary">Send confirmation link</a>
+
                 </div>
             </div>
         </div>

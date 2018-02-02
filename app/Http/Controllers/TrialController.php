@@ -16,4 +16,9 @@ class TrialController extends Controller
     {
         return view('trial.create');
     }
+
+    public function store()
+    {
+        //
+    }
 }
