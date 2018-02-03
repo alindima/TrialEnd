@@ -14,6 +14,6 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('home')->with('trials', Auth::user()->trials());
+        return view('home')->with('trials', Auth::user()->trials);
     }
 }

@@ -38,7 +38,7 @@
                     <ul class="nav navbar-nav">
                         @if(Auth::check())
                             @if(!Auth::user()->verified)
-                                <li>
+                                <li{{ routeName() === 'user.verifyEmail' ? ' class=active' : '' }}>
                                     <a href="{{ route('user.verifyEmail') }}">
                                         <span class="text-danger">
                                             Verify email
@@ -47,10 +47,10 @@
                                 </li>
                             @endif
 
-                            <li>
+                            <li{{ routeName() === 'home' ? ' class=active' : '' }}>
                                 <a href="{{ route('home') }}">View trials</a>
                             </li>
-                            <li>
+                            <li{{ routeName() === 'trial.create' ? ' class=active' : '' }}>
                                 <a href="{{ route('trial.create') }}">Add trial</a>
                             </li>                           
                         @endif
