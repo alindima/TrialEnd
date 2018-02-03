@@ -8386,3 +8386,7 @@ button.close {
   font-size: 1.8rem;
 }
 
+.navbar-static-top {
+  border: 0px !important;
+}
+
