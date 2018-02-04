@@ -37,6 +37,7 @@ class Kernel extends ConsoleKernel
                     $trial->delete();
                 }else if($trial->end_at->diffInDays(Carbon::now()) <= 1 && !$trial->notified){
                     Mail::to($trial->user)->send(new EmailNotification($trial->user, $trial));
+                    $trial->notified=1;
                 }
             }
 
