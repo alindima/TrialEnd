@@ -19,7 +19,7 @@ class CreateTrialsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->text('name');
-            $table->timestamp('end_at');
+            $table->dateTime('end_at');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

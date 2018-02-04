@@ -31,11 +31,13 @@ class Kernel extends ConsoleKernel
     {
         $schedule->call(function () {
             $trials=Trial::all();
+            $now=Carbon::now();
+            $now->timezone='UTC';
 
             foreach ($trials as $trial) {
-                if($trial->end_at->lte(Carbon::now())){
+                if($trial->end_at->lte($now)){
                     $trial->delete();
-                }else if($trial->end_at->diffInDays(Carbon::now()) <= 1 && !$trial->notified){
+                }else if($now->diffInDays($trial->end_at) <= 1 && !$trial->notified){
                     Mail::to($trial->user)->send(new EmailNotification($trial->user, $trial));
                     $trial->notified=1;
                     $trial->save();
